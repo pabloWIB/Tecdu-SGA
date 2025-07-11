@@ -1,83 +1,3399 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" data-theme="light">
+
 <head>
-	<meta charset="UTF-8"/>
-	<meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-	
-	<!-- Canonical URL -->
-	<link rel="canonical" href="https://www.yourwebsite.com" />
-	
-	<!-- Keywords -->
-	<meta name="keywords" content="project, web development, front-end, tech, design, JavaScript, CSS, HTML">
-	
-	<!-- Alternate Language URL -->
-	<link rel="alternate" hreflang="es" href="https://www.yourwebsite.com/es/" />
-	
-	<!-- Viewport for responsive design -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	
-	<!-- Description for search engines -->
-	<meta name="description" content="A brief description of your project that summarizes what it does and why it's valuable.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Académico - Navbar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-	<!-- Open Graph Meta Tags -->
-	<meta property="og:title" content="Your Project Title | Your Project Name"/>
-   	<meta property="og:description" content="Detailed description of what your project is about, highlighting key features and benefits."/>
-  	<meta property="og:image" href="https://www.yourwebsite.com/img/your-image.jpg"/>
-	<meta property="og:image:width" content="1200" />
-	<meta property="og:image:height" content="630" />
-	<meta property="og:image:type" content="image/jpg"/>
-	<meta property="og:type" content="website"/>
-	<meta property="og:site_name" content="Your Website Name"/>
-	<meta property="og:locale" content="en_US"/>
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-blue: #60a5fa;
+            --dark-navy: #1e293b;
+            --light-navy: #334155;
+            --soft-gray: #64748b;
+            --light-gray: #f1f5f9;
+            --pure-white: #ffffff;
+            --border-light: #e2e8f0;
+            --border-medium: #cbd5e1;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --gradient-primary: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            --gradient-subtle: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-nav: rgba(255, 255, 255, 0.95);
+            --bg-nav-scrolled: rgba(255, 255, 255, 0.98);
+            --success-green: #059669;
+            --gradient-blue: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
 
-	<!-- Favicon Icons -->
-	<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192" href="assets/img/favicon/android-icon-192x192.png">
-	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" href="assets/img/favicon/ms-icon-144x144.png">
-	<meta name="theme-color" content="#ffffff">
+        [data-theme="dark"] {
+            --primary-blue: #3b82f6;
+            --secondary-blue: #60a5fa;
+            --accent-blue: #93c5fd;
+            --dark-navy: #0f172a;
+            --light-navy: #1e293b;
+            --soft-gray: #64748b;
+            --light-gray: #1e293b;
+            --pure-white: #0f172a;
+            --border-light: #334155;
+            --border-medium: #475569;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            --gradient-subtle: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-nav: rgba(15, 23, 42, 0.95);
+            --bg-nav-scrolled: rgba(15, 23, 42, 0.98);
+        }
 
-	<!-- Twitter Cards Meta Tags -->
-	<meta name="twitter:title" content="Your Project Title"/>
-	<meta name="twitter:description" content="A short description for Twitter sharing about your project."/>
-	<meta name="twitter:image" content="https://www.yourwebsite.com/img/your-image.jpg"/>
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:label1" content="Est. reading time" />
-	<meta name="twitter:data1" content="3 minutes" />
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
 
-	<!-- Structured Data (JSON-LD) for Search Engines -->
-	<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "Article",
-			"headline": "Your Project Title",
-			"description": "A brief summary of your project including its purpose and impact.",
-			"author": {
-			  "@type": "Person",
-			  "name": "Your Name"
-			},
-			"publisher": {
-			  "@type": "Organization",
-			  "name": "Your Organization Name",
-			  "logo": {
-				"@type": "ImageObject",
-				"url": "https://www.yourwebsite.com/logo.png"
-			  }
-			},
-			"datePublished": "2025-03-12",
-			"image": "https://www.yourwebsite.com/img/your-image.jpg"
-		}
-	</script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-	<link rel="stylesheet" href="css/styles.css"/>
-	<title>Your Project Title | Your Project Name</title>
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: var(--bg-nav);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: var(--bg-nav-scrolled);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo i {
+            font-size: 28px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Desktop Navigation */
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .role-selector,
+        .period-selector {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .role-selector:hover,
+        .period-selector:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .search-container {
+            position: relative;
+        }
+
+        .search-input {
+            width: 320px;
+            padding: 12px 16px 12px 48px;
+            border: 2px solid var(--border-light);
+            border-radius: 16px;
+            font-size: 14px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.1);
+            transform: scale(1.02);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        /* Header Right */
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .user-email {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            display: none;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .action-btn {
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 12px;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .action-btn.theme-toggle {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .action-btn.theme-toggle:hover {
+            background: var(--gradient-primary);
+            transform: translateY(-2px) scale(1.05);
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border: none;
+            border-radius: 12px;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-btn:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .mobile-menu-btn.active {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* Mobile Overlay Menu */
+        .mobile-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--bg-primary);
+            border-left: 1px solid var(--border-light);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+            z-index: 1002;
+        }
+
+        .mobile-overlay.active .mobile-menu {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--bg-secondary);
+        }
+
+        .mobile-menu-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .mobile-menu-close {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 10px;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-close:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .mobile-menu-content {
+            padding: 24px;
+        }
+
+        .mobile-section {
+            margin-bottom: 32px;
+        }
+
+        .mobile-section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mobile-search {
+            position: relative;
+            margin-bottom: 24px;
+        }
+
+        .mobile-search-input {
+            width: 100%;
+            padding: 12px 16px 12px 48px;
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            font-size: 14px;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-search-input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+        }
+
+        .mobile-search-icon {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        .mobile-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-option:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateX(4px);
+        }
+
+        .mobile-option i {
+            width: 24px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .mobile-option-content {
+            flex: 1;
+        }
+
+        .mobile-option-title {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .mobile-option-subtitle {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        .mobile-user-info {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .mobile-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+            margin: 0 auto 12px;
+        }
+
+        .mobile-user-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .mobile-user-email {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: flex;
+            margin-top: 70px;
+            min-height: calc(100vh - 70px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 350px;
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border-light);
+            position: sticky;
+            top: 70px;
+            height: calc(100vh - 70px);
+            overflow-y: auto;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar.collapsed {
+            width: 80px;
+        }
+
+        /* Sidebar Toggle Button */
+        .sidebar-toggle {
+            position: absolute;
+            top: 20px;
+            right: -16px;
+            width: 32px;
+            height: 32px;
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            z-index: 101;
+        }
+
+        .sidebar-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Profile Section */
+        .profile-section {
+            padding: 32px 24px;
+            text-align: center;
+            background: var(--bg-primary);
+            margin: 24px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .profile-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            color: white;
+            margin: 0 auto 16px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .profile-avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .profile-avatar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .profile-avatar:hover::after {
+            left: 100%;
+        }
+
+        .profile-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .profile-id {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .profile-btn {
+            padding: 8px 16px;
+            border: 1px solid var(--border-medium);
+            border-radius: 10px;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .profile-btn:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* User Details Section */
+        .user-details {
+            padding: 0 24px 24px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title i {
+            color: var(--primary-blue);
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            margin-bottom: 8px;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .detail-item:hover {
+            background: var(--bg-secondary);
+            transform: translateX(4px);
+            border-color: var(--primary-blue);
+        }
+
+        .detail-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .detail-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .detail-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+        }
+
+        .detail-value {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            word-break: break-all;
+        }
+
+        /* Manuals Section */
+        .manuals-section {
+            padding: 0 24px 24px;
+        }
+
+        .manual-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: var(--bg-primary);
+            border-radius: 12px;
+            margin-bottom: 8px;
+            border: 1px solid var(--border-light);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .manual-item:hover {
+            background: #fef3c7;
+            border-color: #f59e0b;
+            transform: translateX(4px);
+        }
+
+        [data-theme="dark"] .manual-item:hover {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: #f59e0b;
+        }
+
+        .manual-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        /* Quick Stats Section */
+        .quick-stats {
+            padding: 0 24px 24px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .stat-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-blue);
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.2;
+        }
+
+        /* Collapsed Sidebar Styles */
+        .sidebar.collapsed .profile-section,
+        .sidebar.collapsed .user-details,
+        .sidebar.collapsed .manuals-section,
+        .sidebar.collapsed .quick-stats {
+            display: none;
+        }
+
+        .sidebar.collapsed .sidebar-toggle {
+            right: -16px;
+        }
+
+        .sidebar.collapsed .sidebar-toggle i {
+            transform: rotate(180deg);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 32px;
+            background: var(--bg-primary);
+            min-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        /* Demo Content */
+        .demo-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .demo-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .demo-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .demo-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sidebar {
+                width: 300px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-card {
+                padding: 12px;
+            }
+
+            .stat-value {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 16px;
+            }
+
+            .nav-desktop {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+            }
+
+            .user-email {
+                display: none;
+            }
+
+            .main-layout {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: relative;
+                top: 0;
+                width: 100%;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border-light);
+                order: 1;
+            }
+
+            .sidebar.collapsed {
+                display: none;
+            }
+
+            .sidebar-toggle {
+                top: 16px;
+                right: 16px;
+            }
+
+            .main-content {
+                order: 2;
+                padding: 20px 16px;
+            }
+
+            .demo-title {
+                font-size: 24px;
+            }
+
+            .demo-subtitle {
+                font-size: 16px;
+            }
+
+            .profile-section {
+                margin: 16px;
+                padding: 24px 16px;
+            }
+
+            .user-details,
+            .manuals-section,
+            .quick-stats {
+                padding: 0 16px 16px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .user-email {
+                display: block;
+            }
+
+            .search-input {
+                width: 400px;
+            }
+        }
+
+        /* Animations */
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+    <style>
+        /* Welcome Section */
+        .welcome-section {
+            background: var(--gradient-subtle);
+            border-radius: 20px;
+            padding: 24px 32px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border-light);
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .welcome-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .welcome-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .welcome-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .welcome-subtitle {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+            margin-bottom: 24px;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 16px;
+        }
+
+        .stat-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-blue);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin: 0 auto 16px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover .stat-icon {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Modules Section */
+        .modules-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+
+        .modules-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+
+        .modules-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .view-toggle {
+            display: flex;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 4px;
+            gap: 4px;
+            border: 1px solid var(--border-light);
+        }
+
+        .view-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .view-btn.active {
+            background: var(--primary-blue);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .view-btn:hover:not(.active) {
+            background: var(--border-light);
+            color: var(--text-secondary);
+        }
+
+        /* Modules Container */
+        .modules-container {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 8px;
+            margin-right: -8px;
+        }
+
+        .modules-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .modules-container::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+            border-radius: 10px;
+        }
+
+        .modules-container::-webkit-scrollbar-thumb {
+            background: var(--border-medium);
+            border-radius: 10px;
+        }
+
+        .modules-container::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-blue);
+        }
+
+        /* Module Categories */
+        .module-category {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .module-category:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            background: var(--bg-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .category-header:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .category-header:hover .category-icon {
+            background: white;
+            color: var(--primary-blue);
+        }
+
+        .category-header:hover .category-info h3,
+        .category-header:hover .category-info p {
+            color: white;
+        }
+
+        .category-header:hover .category-toggle {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .category-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .category-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .category-info h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .category-info p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin: 0;
+            transition: all 0.3s ease;
+        }
+
+        .category-toggle {
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary-blue);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .category-toggle:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Modules Grid */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+            padding: 24px;
+            background: var(--bg-secondary);
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .module-category.expanded .modules-grid {
+            max-height: 2000px;
+        }
+
+        .module-category.expanded .category-toggle i {
+            transform: rotate(180deg);
+        }
+
+        /* Module Cards */
+        .module-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .module-card:hover::before {
+            left: 100%;
+        }
+
+        .module-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-blue);
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .module-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--gradient-primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .module-card:hover .module-icon {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+
+        .module-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .module-description {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 16px;
+        }
+
+        .module-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .module-status {
+            font-size: 12px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .module-status.active {
+            background: rgba(5, 150, 105, 0.1);
+            color: var(--success-green);
+            border: 1px solid rgba(5, 150, 105, 0.2);
+        }
+
+        .module-status.inactive {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .module-access {
+            color: var(--primary-blue);
+            font-size: 12px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .module-access:hover {
+            color: var(--secondary-blue);
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .welcome-section {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .welcome-title {
+                font-size: 20px;
+            }
+
+            .welcome-subtitle {
+                font-size: 13px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .stat-card {
+                padding: 16px;
+            }
+
+            .stat-value {
+                font-size: 20px;
+            }
+
+            .modules-header {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .modules-title {
+                font-size: 18px;
+                text-align: center;
+            }
+
+            .view-toggle {
+                justify-content: center;
+            }
+
+            .modules-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 16px;
+            }
+
+            .category-header {
+                padding: 16px 20px;
+            }
+
+            .category-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+
+            .category-info h3 {
+                font-size: 16px;
+            }
+
+            .category-info p {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .stat-card {
+                padding: 12px;
+            }
+
+            .stat-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+                margin-bottom: 12px;
+            }
+
+            .stat-value {
+                font-size: 18px;
+            }
+
+            .stat-label {
+                font-size: 12px;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .module-category {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .module-category:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .module-category:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .module-category:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .module-category:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .module-category:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .module-category:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .module-category:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        .module-category:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+    </style>
 </head>
+
 <body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Portal Académico</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <div class="nav-desktop">
+                <div class="role-selector" id="roleSelector">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>Estudiante</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Buscar módulos..." id="searchInput">
+                    <i class="fas fa-search search-icon"></i>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="period-selector nav-desktop" id="periodSelector">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>2024-1</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+
+                <span class="user-email">estudiante@universidad.edu</span>
+
+                <div class="header-actions">
+                    <button class="action-btn" id="passwordBtn" title="Cambiar contraseña">
+                        <i class="fas fa-lock"></i>
+                    </button>
+                    <button class="action-btn theme-toggle" id="themeToggle" title="Cambiar tema">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <button class="action-btn" id="logoutBtn" title="Cerrar sesión">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Overlay Menu -->
+    <div class="mobile-overlay" id="mobileOverlay">
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="mobile-menu-title">Menú</div>
+                <button class="mobile-menu-close" id="mobileMenuClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="mobile-menu-content">
+                <!-- Search Section -->
+                <div class="mobile-section">
+                    <div class="mobile-search">
+                        <input type="text" class="mobile-search-input" placeholder="Buscar módulos..."
+                            id="mobileSearchInput">
+                        <i class="fas fa-search mobile-search-icon"></i>
+                    </div>
+                </div>
+
+                <!-- User Info -->
+                <div class="mobile-section">
+                    <div class="mobile-user-info">
+                        <div class="mobile-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="mobile-user-name">Juan Carlos Pérez</div>
+                        <div class="mobile-user-email">estudiante@universidad.edu</div>
+                    </div>
+                </div>
+
+                <!-- Navigation Options -->
+                <div class="mobile-section">
+                    <div class="mobile-section-title">
+                        <i class="fas fa-cogs"></i>
+                        Configuración
+                    </div>
+
+                    <div class="mobile-option" id="mobileRoleSelector">
+                        <i class="fas fa-user-graduate"></i>
+                        <div class="mobile-option-content">
+                            <div class="mobile-option-title">Rol Actual</div>
+                            <div class="mobile-option-subtitle">Estudiante</div>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+
+                    <div class="mobile-option" id="mobilePeriodSelector">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div class="mobile-option-content">
+                            <div class="mobile-option-title">Período Académico</div>
+                            <div class="mobile-option-subtitle">2024-1</div>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+
+                    <div class="mobile-option" id="mobileThemeToggle">
+                        <i class="fas fa-moon"></i>
+                        <div class="mobile-option-content">
+                            <div class="mobile-option-title">Tema</div>
+                            <div class="mobile-option-subtitle">Claro</div>
+                        </div>
+                        <i class="fas fa-toggle-off"></i>
+                    </div>
+                </div>
+
+                <!-- Account Actions -->
+                <div class="mobile-section">
+                    <div class="mobile-section-title">
+                        <i class="fas fa-user"></i>
+                        Cuenta
+                    </div>
+
+                    <div class="mobile-option" id="mobilePasswordBtn">
+                        <i class="fas fa-lock"></i>
+                        <div class="mobile-option-content">
+                            <div class="mobile-option-title">Cambiar Contraseña</div>
+                            <div class="mobile-option-subtitle">Actualizar credenciales</div>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+
+                    <div class="mobile-option" id="mobileLogoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <div class="mobile-option-content">
+                            <div class="mobile-option-title">Cerrar Sesión</div>
+                            <div class="mobile-option-subtitle">Salir del portal</div>
+                        </div>
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <div class="profile-content">
+                    <div class="profile-avatar" id="profileAvatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-name">Juan Carlos Pérez</div>
+                    <div class="profile-id">ID: 123456789</div>
+                    <div class="profile-actions">
+                        <button class="profile-btn" id="uploadImageBtn">
+                            <i class="fas fa-camera"></i>
+                            Subir Imagen
+                        </button>
+                        <button class="profile-btn" id="qrCodeBtn">
+                            <i class="fas fa-qrcode"></i>
+                            Ver QR
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Details -->
+            <div class="user-details">
+                <h3 class="section-title">
+                    <i class="fas fa-info-circle"></i>
+                    Información Personal
+                </h3>
+
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="detail-content">
+                        <div class="detail-label">Nombre Completo</div>
+                        <div class="detail-value">Juan Carlos Pérez González</div>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div class="detail-content">
+                        <div class="detail-label">Cédula</div>
+                        <div class="detail-value">123.456.789</div>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="detail-content">
+                        <div class="detail-label">Correo Institucional</div>
+                        <div class="detail-value">estudiante@universidad.edu</div>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-envelope-open"></i>
+                    </div>
+                    <div class="detail-content">
+                        <div class="detail-label">Correo Personal</div>
+                        <div class="detail-value">juan.perez@gmail.com</div>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="detail-content">
+                        <div class="detail-label">Teléfono</div>
+                        <div class="detail-value">+57 300 123 4567</div>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="detail-content">
+                        <div class="detail-label">Programa</div>
+                        <div class="detail-value">Ingeniería de Sistemas</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Manuals Section -->
+            <div class="manuals-section">
+                <h3 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Manuales de Usuario
+                </h3>
+
+                <div class="manual-item">
+                    <div class="manual-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="detail-content">
+                        <div class="detail-label">Manual Estudiante</div>
+                        <div class="detail-value">Guía completa del portal</div>
+                    </div>
+                </div>
+
+                <div class="manual-item">
+                    <div class="manual-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="detail-content">
+                        <div class="detail-label">Manual Académico</div>
+                        <div class="detail-value">Procesos académicos</div>
+                    </div>
+                </div>
+
+                <div class="manual-item">
+                    <div class="manual-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="detail-content">
+                        <div class="detail-label">Guía de Evaluaciones</div>
+                        <div class="detail-value">Sistema de calificaciones</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Section -->
+            <section class="welcome-section fade-in-up">
+                <div class="welcome-content">
+                    <h1 class="welcome-title">¡Bienvenido de vuelta, Juan Carlos! 👋</h1>
+                    <p class="welcome-subtitle">Aquí tienes un resumen de tu actividad académica y acceso rápido a todos
+                        tus módulos.</p>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="stat-value">8</div>
+                            <div class="stat-label">Materias Activas</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">Tareas Pendientes</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="stat-value">2</div>
+                            <div class="stat-label">Próximos Exámenes</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="stat-value">4.2</div>
+                            <div class="stat-label">Promedio General</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Modules Section -->
+            <section class="modules-section">
+                <div class="modules-header">
+                    <h2 class="modules-title">Módulos del Sistema</h2>
+                    <div class="view-toggle">
+                        <button class="view-btn active" id="gridView">
+                            <i class="fas fa-th-large"></i> Cuadrícula
+                        </button>
+                        <button class="view-btn" id="listView">
+                            <i class="fas fa-list"></i> Lista
+                        </button>
+                    </div>
+                </div>
+
+                <div class="modules-container">
+                    <!-- Académico -->
+                    <div class="module-category" data-category="academico">
+                        <div class="category-header">
+                            <div class="category-left">
+                                <div class="category-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="category-info">
+                                    <h3>Académico</h3>
+                                    <p>Gestión académica y calificaciones</p>
+                                </div>
+                            </div>
+                            <button class="category-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="modules-grid">
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-clipboard-list"></i>
+                                    </div>
+                                    <div class="module-title">Consulta Notas</div>
+                                </div>
+                                <div class="module-description">Consulta tus calificaciones y reportes académicos en
+                                    tiempo real.</div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </div>
+                                    <div class="module-title">Horarios</div>
+                                </div>
+                                <div class="module-description">Visualiza tus horarios de clase y actividades
+                                    académicas.</div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-file-alt"></i>
+                                    </div>
+                                    <div class="module-title">Evaluaciones</div>
+                                </div>
+                                <div class="module-description">Accede a evaluaciones en línea y consulta resultados.
+                                </div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="module-title">Aula Virtual</div>
+                                </div>
+                                <div class="module-description">Accede a contenidos y actividades de tus materias.</div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Institucional -->
+                    <div class="module-category" data-category="institucional">
+                        <div class="category-header">
+                            <div class="category-left">
+                                <div class="category-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="category-info">
+                                    <h3>Institucional</h3>
+                                    <p>Servicios y trámites institucionales</p>
+                                </div>
+                            </div>
+                            <button class="category-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="modules-grid">
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-file-signature"></i>
+                                    </div>
+                                    <div class="module-title">Certificados</div>
+                                </div>
+                                <div class="module-description">Solicita y descarga certificados académicos oficiales.
+                                </div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-id-badge"></i>
+                                    </div>
+                                    <div class="module-title">Carnet Estudiantil</div>
+                                </div>
+                                <div class="module-description">Gestiona tu carnet estudiantil y beneficios asociados.
+                                </div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </div>
+                                    <div class="module-title">Encuestas</div>
+                                </div>
+                                <div class="module-description">Participa en evaluaciones y encuestas institucionales.
+                                </div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Administrativo -->
+                    <div class="module-category" data-category="administrativo">
+                        <div class="category-header">
+                            <div class="category-left">
+                                <div class="category-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <div class="category-info">
+                                    <h3>Administrativo</h3>
+                                    <p>Gestión administrativa y documentos</p>
+                                </div>
+                            </div>
+                            <button class="category-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="modules-grid">
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-edit"></i>
+                                    </div>
+                                    <div class="module-title">Actualizar Datos</div>
+                                </div>
+                                <div class="module-description">Mantén actualizados tus datos personales y de contacto.
+                                </div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-folder-open"></i>
+                                    </div>
+                                    <div class="module-title">Documentos</div>
+                                </div>
+                                <div class="module-description">Gestiona y consulta tu documentación académica.</div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Financiero -->
+                    <div class="module-category" data-category="financiero">
+                        <div class="category-header">
+                            <div class="category-left">
+                                <div class="category-icon">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <div class="category-info">
+                                    <h3>Financiero</h3>
+                                    <p>Pagos, facturación y estado financiero</p>
+                                </div>
+                            </div>
+                            <button class="category-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="modules-grid">
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                    </div>
+                                    <div class="module-title">Estado de Cuenta</div>
+                                </div>
+                                <div class="module-description">Consulta tu estado financiero y movimientos de cuenta.
+                                </div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-receipt"></i>
+                                    </div>
+                                    <div class="module-title">Facturación</div>
+                                </div>
+                                <div class="module-description">Accede a tus facturas y comprobantes de pago.</div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-hand-holding-usd"></i>
+                                    </div>
+                                    <div class="module-title">Becas y Auxilios</div>
+                                </div>
+                                <div class="module-description">Información sobre becas disponibles y auxilios
+                                    estudiantiles.</div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bienestar -->
+                    <div class="module-category" data-category="bienestar">
+                        <div class="category-header">
+                            <div class="category-left">
+                                <div class="category-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="category-info">
+                                    <h3>Bienestar Universitario</h3>
+                                    <p>Servicios de bienestar y desarrollo integral</p>
+                                </div>
+                            </div>
+                            <button class="category-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="modules-grid">
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-running"></i>
+                                    </div>
+                                    <div class="module-title">Deportes</div>
+                                </div>
+                                <div class="module-description">Inscríbete en actividades deportivas y torneos.</div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-theater-masks"></i>
+                                    </div>
+                                    <div class="module-title">Cultura</div>
+                                </div>
+                                <div class="module-description">Participa en eventos culturales y artísticos.</div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-user-md"></i>
+                                    </div>
+                                    <div class="module-title">Salud</div>
+                                </div>
+                                <div class="module-description">Servicios médicos y de psicología estudiantil.</div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Investigación -->
+                    <div class="module-category" data-category="investigacion">
+                        <div class="category-header">
+                            <div class="category-left">
+                                <div class="category-icon">
+                                    <i class="fas fa-microscope"></i>
+                                </div>
+                                <div class="category-info">
+                                    <h3>Investigación</h3>
+                                    <p>Proyectos de investigación y semilleros</p>
+                                </div>
+                            </div>
+                            <button class="category-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="modules-grid">
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-seedling"></i>
+                                    </div>
+                                    <div class="module-title">Semilleros</div>
+                                </div>
+                                <div class="module-description">Únete a grupos de investigación estudiantiles.</div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-project-diagram"></i>
+                                    </div>
+                                    <div class="module-title">Proyectos</div>
+                                </div>
+                                <div class="module-description">Consulta proyectos de investigación activos.</div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prácticas y Vinculación -->
+                    <div class="module-category" data-category="practicas">
+                        <div class="category-header">
+                            <div class="category-left">
+                                <div class="category-icon">
+                                    <i class="fas fa-handshake"></i>
+                                </div>
+                                <div class="category-info">
+                                    <h3>Prácticas y Vinculación</h3>
+                                    <p>Prácticas profesionales y vínculos empresariales</p>
+                                </div>
+                            </div>
+                            <button class="category-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="modules-grid">
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-briefcase"></i>
+                                    </div>
+                                    <div class="module-title">Prácticas</div>
+                                </div>
+                                <div class="module-description">Consulta y aplica a oportunidades de práctica
+                                    profesional.</div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-building"></i>
+                                    </div>
+                                    <div class="module-title">Empresas</div>
+                                </div>
+                                <div class="module-description">Directorio de empresas aliadas para prácticas.</div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Módulos Comunes -->
+                    <div class="module-category" data-category="comunes">
+                        <div class="category-header">
+                            <div class="category-left">
+                                <div class="category-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="category-info">
+                                    <h3>Módulos Comunes</h3>
+                                    <p>Herramientas y utilidades generales</p>
+                                </div>
+                            </div>
+                            <button class="category-toggle">
+                                <i class="fas fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="modules-grid">
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <div class="module-title">Mensajería</div>
+                                </div>
+                                <div class="module-description">Comunicación interna con profesores y compañeros.</div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-bell"></i>
+                                    </div>
+                                    <div class="module-title">Notificaciones</div>
+                                </div>
+                                <div class="module-description">Centro de notificaciones y alertas importantes.</div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                            <div class="module-card">
+                                <div class="module-header">
+                                    <div class="module-icon">
+                                        <i class="fas fa-question-circle"></i>
+                                    </div>
+                                    <div class="module-title">Soporte</div>
+                                </div>
+                                <div class="module-description">Mesa de ayuda y soporte técnico del portal.</div>
+                                <div class="module-footer">
+                                    <span class="module-status active">Activo</span>
+                                    <a href="#" class="module-access">Acceder →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+
+        // Variables globales
+        let isDarkTheme = false;
+        let mobileMenuOpen = false;
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeEventListeners();
+            loadUserPreferences();
+        });
+
+        // Event Listeners
+        function initializeEventListeners() {
+            // Header scroll effect
+            window.addEventListener('scroll', handleHeaderScroll);
+
+            // Theme toggle (desktop)
+            themeToggle.addEventListener('click', toggleTheme);
+
+            // Mobile menu controls
+            mobileMenuBtn.addEventListener('click', openMobileMenu);
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+            mobileOverlay.addEventListener('click', function (e) {
+                if (e.target === mobileOverlay) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Mobile theme toggle
+            mobileThemeToggle.addEventListener('click', toggleTheme);
+
+            document.getElementById('mobilePasswordBtn').addEventListener('click', () => {
+                closeMobileMenu();
+            });
+
+            document.getElementById('mobileLogoutBtn').addEventListener('click', () => {
+                if (confirm('¿Estás seguro de que deseas cerrar sesión?')) {
+                    closeMobileMenu();
+                }
+            });
 
 
-	<div class="cursor"></div>
-	
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-	<script type="module" src="js/script.js"></script>
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function (e) {
+                // Escape para cerrar menú móvil
+                if (e.key === 'Escape' && mobileMenuOpen) {
+                    closeMobileMenu();
+                }
+
+                // Ctrl/Cmd + K para enfocar búsqueda
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    const searchInput = window.innerWidth <= 768 ?
+                        document.getElementById('mobileSearchInput') :
+                        document.getElementById('searchInput');
+
+                    if (window.innerWidth <= 768 && !mobileMenuOpen) {
+                        openMobileMenu();
+                        setTimeout(() => searchInput.focus(), 300);
+                    } else {
+                        searchInput.focus();
+                    }
+                }
+
+                // Ctrl/Cmd + D para cambiar tema
+                if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+                    e.preventDefault();
+                    toggleTheme();
+                }
+            });
+        }
+
+        // Header scroll effect
+        function handleHeaderScroll() {
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Theme toggle
+        function toggleTheme() {
+            isDarkTheme = !isDarkTheme;
+            const html = document.documentElement;
+            const desktopIcon = themeToggle.querySelector('i');
+            const mobileThemeOption = mobileThemeToggle.querySelector('.mobile-option-subtitle');
+            const mobileThemeIcon = mobileThemeToggle.querySelector('i:last-child');
+
+            if (isDarkTheme) {
+                html.setAttribute('data-theme', 'dark');
+                desktopIcon.className = 'fas fa-sun';
+                mobileThemeOption.textContent = 'Oscuro';
+                mobileThemeIcon.className = 'fas fa-toggle-on';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+                desktopIcon.className = 'fas fa-moon';
+                mobileThemeOption.textContent = 'Claro';
+                mobileThemeIcon.className = 'fas fa-toggle-off';
+                localStorage.setItem('theme', 'light');
+            }
+
+            // Animación del botón de tema
+            themeToggle.style.transform = 'scale(0.9) rotate(180deg)';
+            setTimeout(() => {
+                themeToggle.style.transform = 'scale(1) rotate(0deg)';
+            }, 300);
+
+            // Animación del toggle móvil
+            mobileThemeIcon.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                mobileThemeIcon.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        // Mobile menu functions
+        function openMobileMenu() {
+            mobileMenuOpen = true;
+            mobileOverlay.classList.add('active');
+            mobileMenuBtn.classList.add('active');
+
+            // Cambiar icono del botón
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.className = 'fas fa-times';
+
+            // Prevenir scroll del body
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenuOpen = false;
+            mobileOverlay.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+
+            // Restaurar icono del botón
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.className = 'fas fa-bars';
+
+            // Restaurar scroll del body
+            document.body.style.overflow = '';
+        }
+
+        // Load user preferences
+        function loadUserPreferences() {
+            // Cargar tema guardado
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                toggleTheme();
+            }
+        }
+
+        // Cerrar menú móvil al cambiar el tamaño de la ventana
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768 && mobileMenuOpen) {
+                closeMobileMenu();
+            }
+        });
+
+        // Efecto de onda en los botones
+        function createRippleEffect(element, event) {
+            const ripple = document.createElement('span');
+            const rect = element.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+
+            ripple.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${x}px;
+                top: ${y}px;
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                transform: scale(0);
+                animation: ripple 0.6s ease-out;
+                pointer-events: none;
+                z-index: 1;
+            `;
+
+            element.style.position = 'relative';
+            element.style.overflow = 'hidden';
+            element.appendChild(ripple);
+
+            setTimeout(() => ripple.remove(), 600);
+        }
+
+        // Agregar efecto ripple a todos los botones
+        document.querySelectorAll('.action-btn, .mobile-option, .role-selector, .period-selector').forEach(button => {
+            button.addEventListener('click', function (e) {
+                createRippleEffect(this, e);
+            });
+        });
+
+        // Añadir animaciones CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes slideInDown {
+                from {
+                    transform: translateY(-10px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes pulse {
+                0%, 100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.05);
+                }
+            }
+            
+            .demo-card {
+                animation: slideInDown 0.6s ease-out;
+            }
+            
+            .demo-card:nth-child(1) { animation-delay: 0.1s; }
+            .demo-card:nth-child(2) { animation-delay: 0.2s; }
+            .demo-card:nth-child(3) { animation-delay: 0.3s; }
+            .demo-card:nth-child(4) { animation-delay: 0.4s; }
+            
+            .logo:hover {
+                animation: pulse 0.6s ease-in-out;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Variables globales
+        let sidebarCollapsed = false;
+
+        // Elementos del DOM
+        const header = document.getElementById('header');
+        const themeToggle = document.getElementById('themeToggle');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+        const sidebar = document.getElementById('sidebar');
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeEventListeners();
+            loadUserPreferences();
+        });
+
+        // Event Listeners
+        function initializeEventListeners() {
+            // Header scroll effect
+            window.addEventListener('scroll', handleHeaderScroll);
+
+            // Theme toggle (desktop)
+            themeToggle.addEventListener('click', toggleTheme);
+
+            // Mobile menu controls
+            mobileMenuBtn.addEventListener('click', openMobileMenu);
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+            mobileOverlay.addEventListener('click', function (e) {
+                if (e.target === mobileOverlay) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Mobile theme toggle
+            mobileThemeToggle.addEventListener('click', toggleTheme);
+
+            // Profile actions
+            document.getElementById('uploadImageBtn').addEventListener('click', function () {
+                // Simular subida de imagen
+                const avatar = document.getElementById('profileAvatar');
+                avatar.innerHTML = '<i class="fas fa-check" style="color: #10b981;"></i>';
+
+                setTimeout(() => {
+                    avatar.innerHTML = '<i class="fas fa-user"></i>';
+                }, 2000);
+            });
+
+            document.getElementById('qrCodeBtn').addEventListener('click', function () {
+                // Crear modal simple para QR
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+                    background: rgba(0,0,0,0.5); z-index: 2000;
+                    display: flex; align-items: center; justify-content: center;
+                `;
+
+                modal.innerHTML = `
+                    <div style="
+                        background: var(--bg-primary); 
+                        padding: 40px; 
+                        border-radius: 20px; 
+                        text-align: center;
+                        border: 1px solid var(--border-light);
+                        box-shadow: var(--shadow-xl);
+                    ">
+                        <h3 style="color: var(--text-primary); margin-bottom: 20px;">Código QR Estudiantil</h3>
+                        <div style="
+                            width: 200px; height: 200px; 
+                            background: white; 
+                            border: 2px solid var(--border-light); 
+                            border-radius: 12px; 
+                            margin: 0 auto 20px;
+                            display: flex; align-items: center; justify-content: center;
+                            background: repeating-linear-gradient(0deg, #1e293b, #1e293b 4px, transparent 4px, transparent 8px), 
+                                       repeating-linear-gradient(90deg, #1e293b, #1e293b 4px, transparent 4px, transparent 8px);
+                        "></div>
+                        <p style="color: var(--text-muted); margin-bottom: 20px;">ID: 123456789</p>
+                        <button onclick="this.parentElement.parentElement.remove()" style="
+                            padding: 10px 20px;
+                            background: var(--primary-blue);
+                            color: white;
+                            border: none;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            font-weight: 500;
+                        ">Cerrar</button>
+                    </div>
+                `;
+
+                document.body.appendChild(modal);
+            });
+
+            // Keyboard shortcuts
+            document.addEventListener('keydown', function (e) {
+                // Escape para cerrar menú móvil
+                if (e.key === 'Escape' && mobileMenuOpen) {
+                    closeMobileMenu();
+                }
+
+                // Ctrl/Cmd + K para enfocar búsqueda
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                    e.preventDefault();
+                    const searchInput = window.innerWidth <= 768 ?
+                        document.getElementById('mobileSearchInput') :
+                        document.getElementById('searchInput');
+
+                    if (window.innerWidth <= 768 && !mobileMenuOpen) {
+                        openMobileMenu();
+                        setTimeout(() => searchInput.focus(), 300);
+                    } else {
+                        searchInput.focus();
+                    }
+                }
+
+                // Ctrl/Cmd + D para cambiar tema
+                if ((e.ctrlKey || e.metaKey) && e.key === 'd') {
+                    e.preventDefault();
+                    toggleTheme();
+                }
+
+                // Ctrl/Cmd + B para toggle sidebar
+                if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
+                    e.preventDefault();
+                    toggleSidebar();
+                }
+            });
+        }
+
+        // Header scroll effect
+        function handleHeaderScroll() {
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Sidebar toggle
+        function toggleSidebar() {
+            sidebarCollapsed = !sidebarCollapsed;
+            sidebar.classList.toggle('collapsed');
+
+            if (sidebarCollapsed) {
+                icon.className = 'fas fa-chevron-right';
+            } else {
+                icon.className = 'fas fa-chevron-left';
+            }
+
+            // Guardar estado
+            localStorage.setItem('sidebarCollapsed', sidebarCollapsed);
+        }
+
+        // Theme toggle
+        function toggleTheme() {
+            isDarkTheme = !isDarkTheme;
+            const html = document.documentElement;
+            const desktopIcon = themeToggle.querySelector('i');
+            const mobileThemeOption = mobileThemeToggle.querySelector('.mobile-option-subtitle');
+            const mobileThemeIcon = mobileThemeToggle.querySelector('i:last-child');
+
+            if (isDarkTheme) {
+                html.setAttribute('data-theme', 'dark');
+                desktopIcon.className = 'fas fa-sun';
+                mobileThemeOption.textContent = 'Oscuro';
+                mobileThemeIcon.className = 'fas fa-toggle-on';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.setAttribute('data-theme', 'light');
+                desktopIcon.className = 'fas fa-moon';
+                mobileThemeOption.textContent = 'Claro';
+                mobileThemeIcon.className = 'fas fa-toggle-off';
+                localStorage.setItem('theme', 'light');
+            }
+
+            // Animación del botón de tema
+            themeToggle.style.transform = 'scale(0.9) rotate(180deg)';
+            setTimeout(() => {
+                themeToggle.style.transform = 'scale(1) rotate(0deg)';
+            }, 300);
+
+            // Animación del toggle móvil
+            mobileThemeIcon.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                mobileThemeIcon.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        // Mobile menu functions
+        function openMobileMenu() {
+            mobileMenuOpen = true;
+            mobileOverlay.classList.add('active');
+            mobileMenuBtn.classList.add('active');
+
+            // Cambiar icono del botón
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.className = 'fas fa-times';
+
+            // Prevenir scroll del body
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            mobileMenuOpen = false;
+            mobileOverlay.classList.remove('active');
+            mobileMenuBtn.classList.remove('active');
+
+            // Restaurar icono del botón
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.className = 'fas fa-bars';
+
+            // Restaurar scroll del body
+            document.body.style.overflow = '';
+        }
+
+        // Load user preferences
+        function loadUserPreferences() {
+            // Cargar tema guardado
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                toggleTheme();
+            }
+
+            // Cargar estado del sidebar
+            const savedSidebarState = localStorage.getItem('sidebarCollapsed');
+            if (savedSidebarState === 'true') {
+                toggleSidebar();
+            }
+        }
+
+        // Cerrar menú móvil al cambiar el tamaño de la ventana
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768 && mobileMenuOpen) {
+                closeMobileMenu();
+            }
+        });
+
+        // Efecto de onda en los botones
+        function createRippleEffect(element, event) {
+            const ripple = document.createElement('span');
+            const rect = element.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+
+            ripple.style.cssText = `
+                position: absolute;
+                width: ${size}px;
+                height: ${size}px;
+                left: ${x}px;
+                top: ${y}px;
+                background: rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                transform: scale(0);
+                animation: ripple 0.6s ease-out;
+                pointer-events: none;
+                z-index: 1;
+            `;
+
+            element.style.position = 'relative';
+            element.style.overflow = 'hidden';
+            element.appendChild(ripple);
+
+            setTimeout(() => ripple.remove(), 600);
+        }
+
+        // Agregar efecto ripple a todos los botones
+        document.querySelectorAll('.action-btn, .mobile-option, .role-selector, .period-selector, .profile-btn, .detail-item, .manual-item, .stat-card').forEach(button => {
+            button.addEventListener('click', function (e) {
+                createRippleEffect(this, e);
+            });
+        });
+
+        // Añadir animaciones CSS
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes slideInDown {
+                from {
+                    transform: translateY(-10px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideInLeft {
+                from {
+                    transform: translateX(-20px);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes pulse {
+                0%, 100% {
+                    transform: scale(1);
+                }
+                50% {
+                    transform: scale(1.05);
+                }
+            }
+            
+            .demo-card {
+                animation: slideInDown 0.6s ease-out;
+            }
+            
+            .demo-card:nth-child(1) { animation-delay: 0.1s; }
+            .demo-card:nth-child(2) { animation-delay: 0.2s; }
+            .demo-card:nth-child(3) { animation-delay: 0.3s; }
+            .demo-card:nth-child(4) { animation-delay: 0.4s; }
+            .demo-card:nth-child(5) { animation-delay: 0.5s; }
+            .demo-card:nth-child(6) { animation-delay: 0.6s; }
+            
+            .logo:hover {
+                animation: pulse 0.6s ease-in-out;
+            }
+
+            .detail-item,
+            .manual-item,
+            .stat-card {
+                animation: slideInLeft 0.6s ease-out;
+            }
+
+            .detail-item:nth-child(1) { animation-delay: 0.1s; }
+            .detail-item:nth-child(2) { animation-delay: 0.2s; }
+            .detail-item:nth-child(3) { animation-delay: 0.3s; }
+            .detail-item:nth-child(4) { animation-delay: 0.4s; }
+            .detail-item:nth-child(5) { animation-delay: 0.5s; }
+            .detail-item:nth-child(6) { animation-delay: 0.6s; }
+
+            .profile-section {
+                animation: slideInDown 0.8s ease-out;
+            }
+
+            .sidebar-toggle {
+                animation: slideInDown 0.6s ease-out 0.2s both;
+            }
+        `;
+        document.head.appendChild(style);
+
+    </script>
+
+    <script>
+        // Variables para módulos
+        let currentView = 'grid';
+        let allExpanded = false;
+
+        // Inicialización de módulos
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeModules();
+        });
+
+        function initializeModules() {
+            // View toggle buttons
+            const viewButtons = document.querySelectorAll('.view-btn');
+            viewButtons.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const view = this.id === 'gridView' ? 'grid' : 'list';
+                    toggleView(view);
+                });
+            });
+
+            // Category headers y toggles
+            const categoryHeaders = document.querySelectorAll('.category-header');
+            categoryHeaders.forEach(header => {
+                header.addEventListener('click', function (e) {
+                    // Solo toggle si no se hizo click en el botón específico
+                    if (!e.target.closest('.category-toggle')) {
+                        toggleCategory(this.closest('.module-category'));
+                    }
+                });
+            });
+
+            const categoryToggles = document.querySelectorAll('.category-toggle');
+            categoryToggles.forEach(toggle => {
+                toggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    toggleCategory(this.closest('.module-category'));
+                });
+            });
+
+            // Module cards
+            const moduleCards = document.querySelectorAll('.module-card');
+            moduleCards.forEach(card => {
+                card.addEventListener('click', function (e) {
+                    // Solo activar si no se hizo click en un enlace
+                    if (!e.target.closest('.module-access')) {
+                        handleModuleCardClick(this);
+                    }
+                });
+            });
+
+            // Module access links
+            const moduleLinks = document.querySelectorAll('.module-access');
+            moduleLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleModuleAccess(this);
+                });
+            });
+
+            // Stats cards
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    handleStatCardClick(this);
+                });
+            });
+
+            // Auto-expandir primera categoría
+            setTimeout(() => {
+                const firstCategory = document.querySelector('.module-category[data-category="academico"]');
+                if (firstCategory && !firstCategory.classList.contains('expanded')) {
+                    toggleCategory(firstCategory);
+                }
+            }, 500);
+
+            // Cargar preferencias guardadas
+            loadModulePreferences();
+
+            // Agregar efectos ripple
+            addRippleToModules();
+        }
+
+        // Toggle entre vista grid y lista
+        function toggleView(view) {
+            currentView = view;
+            const viewButtons = document.querySelectorAll('.view-btn');
+            const modulesGrids = document.querySelectorAll('.modules-grid');
+
+            // Actualizar botones activos
+            viewButtons.forEach(btn => {
+                if ((view === 'grid' && btn.id === 'gridView') ||
+                    (view === 'list' && btn.id === 'listView')) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            // Actualizar layout de grids
+            modulesGrids.forEach(grid => {
+                if (view === 'list') {
+                    grid.style.gridTemplateColumns = '1fr';
+                    grid.classList.add('list-view');
+                } else {
+                    grid.style.gridTemplateColumns = 'repeat(auto-fit, minmax(300px, 1fr))';
+                    grid.classList.remove('list-view');
+                }
+            });
+
+            // Guardar preferencia
+            localStorage.setItem('moduleView', view);
+
+            // Animación de cambio
+            modulesGrids.forEach(grid => {
+                grid.style.opacity = '0.7';
+                setTimeout(() => {
+                    grid.style.opacity = '1';
+                }, 150);
+            });
+        }
+
+        // Toggle categoría individual
+        function toggleCategory(category) {
+            const isExpanded = category.classList.contains('expanded');
+
+            if (isExpanded) {
+                category.classList.remove('expanded');
+                animateCategoryClose(category);
+            } else {
+                category.classList.add('expanded');
+                animateCategoryOpen(category);
+            }
+
+            // Efecto ripple en el header
+            const header = category.querySelector('.category-header');
+            createRippleEffect(header, {
+                clientX: header.offsetWidth / 2,
+                clientY: header.offsetHeight / 2
+            });
+        }
+
+        // Animar apertura de categoría
+        function animateCategoryOpen(category) {
+            const grid = category.querySelector('.modules-grid');
+            const cards = grid.querySelectorAll('.module-card');
+
+            // Animar tarjetas con retraso escalonado
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+
+                setTimeout(() => {
+                    card.style.transition = 'all 0.4s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        }
+
+        // Animar cierre de categoría
+        function animateCategoryClose(category) {
+            const grid = category.querySelector('.modules-grid');
+            const cards = grid.querySelectorAll('.module-card');
+
+            cards.forEach(card => {
+                card.style.transition = 'all 0.3s ease';
+                card.style.opacity = '0.7';
+            });
+        }
+
+        // Handle click en tarjeta de módulo
+        function handleModuleCardClick(card) {
+            const moduleName = card.querySelector('.module-title').textContent;
+
+            // Animación de click
+            card.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                card.style.transform = '';
+            }, 150);
+
+            // Efecto ripple
+            createRippleEffect(card, {
+                clientX: card.offsetWidth / 2,
+                clientY: card.offsetHeight / 2
+            });
+
+            console.log(`Tarjeta clickeada: ${moduleName}`);
+        }
+
+        // Handle acceso a módulo
+        function handleModuleAccess(link) {
+            const card = link.closest('.module-card');
+            const moduleName = card.querySelector('.module-title').textContent;
+
+            // Animación de loading
+            link.style.opacity = '0.6';
+            link.style.pointerEvents = 'none';
+            link.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Cargando...';
+
+            // Simular carga
+            setTimeout(() => {
+                link.style.opacity = '1';
+                link.style.pointerEvents = 'auto';
+                link.innerHTML = 'Acceder →';
+                console.log(`Accediendo al módulo: ${moduleName}`);
+
+                // Aquí irías a la URL del módulo
+                // window.location.href = '/modulo/' + moduleName.toLowerCase().replace(/\s+/g, '-');
+            }, 1500);
+
+            // Efecto ripple
+            createRippleEffect(link, {
+                clientX: link.offsetWidth / 2,
+                clientY: link.offsetHeight / 2
+            });
+        }
+
+        // Handle click en tarjetas de estadísticas
+        function handleStatCardClick(card) {
+            const statLabel = card.querySelector('.stat-label').textContent;
+            const statValue = card.querySelector('.stat-value').textContent;
+
+            // Animación
+            card.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                card.style.transform = '';
+            }, 150);
+
+            // Efecto ripple
+            createRippleEffect(card, {
+                clientX: card.offsetWidth / 2,
+                clientY: card.offsetHeight / 2
+            });
+
+            console.log(`Estadística clickeada: ${statLabel} - ${statValue}`);
+
+            // Aquí podrías abrir un modal con más detalles
+            // showStatModal(statLabel, statValue);
+        }
+
+        // Función de búsqueda para módulos
+        function searchModules(searchTerm) {
+            const categories = document.querySelectorAll('.module-category');
+            const term = searchTerm.toLowerCase().trim();
+
+            if (term === '') {
+                // Mostrar todas las categorías y módulos
+                categories.forEach(category => {
+                    category.style.display = 'block';
+                    const modules = category.querySelectorAll('.module-card');
+                    modules.forEach(module => {
+                        module.style.display = 'block';
+                        removeHighlights(module);
+                    });
+                });
+                return;
+            }
+
+            categories.forEach(category => {
+                const categoryTitle = category.querySelector('.category-info h3').textContent.toLowerCase();
+                const modules = category.querySelectorAll('.module-card');
+                let hasVisibleModules = false;
+
+                modules.forEach(module => {
+                    const moduleTitle = module.querySelector('.module-title').textContent.toLowerCase();
+                    const moduleDescription = module.querySelector('.module-description').textContent.toLowerCase();
+
+                    if (moduleTitle.includes(term) ||
+                        moduleDescription.includes(term) ||
+                        categoryTitle.includes(term)) {
+                        module.style.display = 'block';
+                        hasVisibleModules = true;
+                        highlightSearchTerm(module, term);
+                    } else {
+                        module.style.display = 'none';
+                        removeHighlights(module);
+                    }
+                });
+
+                // Mostrar/ocultar categoría según módulos visibles
+                if (hasVisibleModules || categoryTitle.includes(term)) {
+                    category.style.display = 'block';
+                    // Auto-expandir categoría con resultados
+                    if (!category.classList.contains('expanded')) {
+                        toggleCategory(category);
+                    }
+                } else {
+                    category.style.display = 'none';
+                }
+            });
+        }
+
+        // Destacar términos de búsqueda
+        function highlightSearchTerm(element, term) {
+            if (term.length < 2) return;
+
+            const titleEl = element.querySelector('.module-title');
+            const descEl = element.querySelector('.module-description');
+
+            [titleEl, descEl].forEach(el => {
+                const originalText = el.getAttribute('data-original') || el.textContent;
+                el.setAttribute('data-original', originalText);
+
+                const regex = new RegExp(`(${term})`, 'gi');
+                el.innerHTML = originalText.replace(regex,
+                    '<mark style="background: #fbbf24; padding: 2px 4px; border-radius: 4px; color: #000; font-weight: 600;">$1</mark>'
+                );
+            });
+        }
+
+        // Remover highlights de búsqueda
+        function removeHighlights(element) {
+            const titleEl = element.querySelector('.module-title');
+            const descEl = element.querySelector('.module-description');
+
+            [titleEl, descEl].forEach(el => {
+                const originalText = el.getAttribute('data-original');
+                if (originalText) {
+                    el.textContent = originalText;
+                    el.removeAttribute('data-original');
+                }
+            });
+        }
+
+        // Cargar preferencias de módulos
+        function loadModulePreferences() {
+            // Cargar vista guardada
+            const savedView = localStorage.getItem('moduleView');
+            if (savedView && savedView !== currentView) {
+                toggleView(savedView);
+            }
+        }
+
+        // Agregar efectos ripple a elementos de módulos
+        function addRippleToModules() {
+            const rippleElements = document.querySelectorAll(
+                '.stat-card, .category-header, .module-card, .module-access, .view-btn'
+            );
+
+            rippleElements.forEach(element => {
+                element.addEventListener('click', function (e) {
+                    createRippleEffect(this, e);
+                });
+            });
+        }
+
+        // Efecto ripple
+        function createRippleEffect(element, event) {
+            const ripple = document.createElement('span');
+            const rect = element.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = event.clientX - rect.left - size / 2;
+            const y = event.clientY - rect.top - size / 2;
+
+            ripple.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        left: ${x}px;
+        top: ${y}px;
+        background: rgba(59, 130, 246, 0.3);
+        border-radius: 50%;
+        transform: scale(0);
+        animation: rippleAnimation 0.6s ease-out;
+        pointer-events: none;
+        z-index: 1;
+    `;
+
+            element.style.position = 'relative';
+            element.style.overflow = 'hidden';
+            element.appendChild(ripple);
+
+            setTimeout(() => ripple.remove(), 600);
+        }
+
+        // Expandir/contraer todas las categorías
+        function toggleAllCategories() {
+            const categories = document.querySelectorAll('.module-category');
+            allExpanded = !allExpanded;
+
+            categories.forEach((category, index) => {
+                setTimeout(() => {
+                    if (allExpanded) {
+                        if (!category.classList.contains('expanded')) {
+                            toggleCategory(category);
+                        }
+                    } else {
+                        if (category.classList.contains('expanded')) {
+                            toggleCategory(category);
+                        }
+                    }
+                }, index * 100);
+            });
+        }
+
+        // Atajos de teclado específicos para módulos
+        document.addEventListener('keydown', function (e) {
+            // Ctrl/Cmd + E para expandir/contraer todos
+            if ((e.ctrlKey || e.metaKey) && e.key === 'e') {
+                e.preventDefault();
+                toggleAllCategories();
+            }
+
+            // Ctrl/Cmd + G para cambiar vista
+            if ((e.ctrlKey || e.metaKey) && e.key === 'g') {
+                e.preventDefault();
+                toggleView(currentView === 'grid' ? 'list' : 'grid');
+            }
+
+            // Números 1-8 para expandir categorías específicas
+            if (e.key >= '1' && e.key <= '8') {
+                const categoryIndex = parseInt(e.key) - 1;
+                const categories = document.querySelectorAll('.module-category');
+                if (categories[categoryIndex]) {
+                    toggleCategory(categories[categoryIndex]);
+                }
+            }
+        });
+
+        // Conectar búsqueda con input del navbar
+        const searchInput = document.getElementById('searchInput');
+        const mobileSearchInput = document.getElementById('mobileSearchInput');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', function (e) {
+                searchModules(e.target.value);
+            });
+        }
+
+        if (mobileSearchInput) {
+            mobileSearchInput.addEventListener('input', function (e) {
+                searchModules(e.target.value);
+            });
+        }
+
+        // Agregar animación CSS para ripple
+        const moduleStyles = document.createElement('style');
+        moduleStyles.textContent = `
+    @keyframes rippleAnimation {
+        to {
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+    
+    .modules-grid.list-view .module-card {
+        display: flex !important;
+        align-items: center;
+        padding: 16px 20px;
+    }
+    
+    .modules-grid.list-view .module-header {
+        margin-bottom: 0;
+        margin-right: 16px;
+    }
+    
+    .modules-grid.list-view .module-icon {
+        margin-bottom: 0;
+    }
+    
+    .modules-grid.list-view .module-description {
+        margin-bottom: 0;
+        flex: 1;
+        margin-right: 16px;
+    }
+    
+    .modules-grid.list-view .module-footer {
+        flex-shrink: 0;
+    }
+`;
+        document.head.appendChild(moduleStyles);
+
+        // Log de inicialización
+        console.log('🎉 Módulos del sistema cargados correctamente!');
+        console.log('💡 Atajos disponibles:');
+        console.log('   Ctrl+E: Expandir/contraer todas las categorías');
+        console.log('   Ctrl+G: Cambiar vista (grid/list)');
+        console.log('   1-8: Expandir categoría específica');
+    </script>
 </body>
+
 </html>
