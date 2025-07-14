@@ -91,10 +91,13 @@ Este proyecto está bajo la licencia <a href="license">MIT</a>
 
 <p align="center">
   <a href="https://es.fiverr.com/pablonietop" target="_blank">
-    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/fiverr.svg" alt="Fiverr" width="32" style="vertical-align:middle; margin-right:8px;" />
+    <img src="https://img.shields.io/badge/fiverr-1DBF73?style=for-the-badge&logo=fiverr&logoColor=white" alt="Fiverr" width="40" style="vertical-align:middle; margin-right:12px;" />
   </a>
   <a href="https://www.linkedin.com/in/pablo-nieto-perez-39a530292/" target="_blank">
-    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="32" style="vertical-align:middle; margin-left:8px;" />
+    <img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn" width="40" style="vertical-align:middle; margin-left:12px;" />
+  </a>
+  <a href="https://github.com/pabloWIB" target="_blank">
+    <img src="https://skillicons.dev/icons?i=github" alt="GitHub" width="40" style="vertical-align:middle; margin-left:12px;" />
   </a>
 </p>
 
