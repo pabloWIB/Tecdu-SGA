@@ -122,7 +122,6 @@ function initializeDropdowns() {
                 roleOptions.forEach(opt => opt.classList.remove('selected'));
                 this.classList.add('selected');
 
-                // Actualizar texto e icon
                 const newRole = this.getAttribute('data-role');
                 const newText = this.querySelector('span').textContent;
                 const newIcon = this.querySelector('i').className;
@@ -267,9 +266,7 @@ function initializeMobileDropdowns() {
     });
 }
 
-// Inicializar dropdowns de teléfono (left section)
 function initializePhoneDropdowns() {
-    // Role dropdown phone
     if (roleDropdownPhone) {
         const roleTriggerPhone = roleDropdownPhone.querySelector('.dropdown-trigger');
         const roleOptionsPhone = roleDropdownPhone.querySelectorAll('.dropdown-option');
@@ -278,12 +275,10 @@ function initializePhoneDropdowns() {
             roleTriggerPhone.addEventListener('click', function (e) {
                 e.stopPropagation();
 
-                // Si ya está activo, cerrarlo
                 if (roleDropdownPhone.classList.contains('active')) {
                     roleDropdownPhone.classList.remove('active');
                     roleTriggerPhone.classList.remove('active');
                 } else {
-                    // Cerrar otros dropdowns y abrir este
                     closeAllPhoneDropdowns();
                     roleDropdownPhone.classList.add('active');
                     roleTriggerPhone.classList.add('active');
@@ -295,11 +290,9 @@ function initializePhoneDropdowns() {
             option.addEventListener('click', function (e) {
                 e.stopPropagation();
 
-                // Actualizar selección
                 roleOptionsPhone.forEach(opt => opt.classList.remove('selected'));
                 this.classList.add('selected');
 
-                // Actualizar texto e icono
                 const newRole = this.getAttribute('data-role');
                 const newText = this.querySelector('span').textContent;
                 const newIcon = this.querySelector('i').className;
@@ -307,20 +300,16 @@ function initializePhoneDropdowns() {
                 if (roleTextPhone) roleTextPhone.textContent = newText;
                 if (roleIconPhone) roleIconPhone.className = newIcon + ' dropdown-icon';
 
-                // Sincronizar con dropdowns del header
                 syncHeaderRole(newRole, newText, newIcon);
 
-                // Cerrar dropdown
                 roleDropdownPhone.classList.remove('active');
                 if (roleTriggerPhone) roleTriggerPhone.classList.remove('active');
 
-                // Actualizar email según rol
                 updateUserEmail(newRole);
             });
         });
     }
 
-    // Period dropdown phone
     if (periodDropdownPhone) {
         const periodTriggerPhone = periodDropdownPhone.querySelector('.dropdown-trigger');
         const periodOptionsPhone = periodDropdownPhone.querySelectorAll('.dropdown-option');
@@ -329,12 +318,10 @@ function initializePhoneDropdowns() {
             periodTriggerPhone.addEventListener('click', function (e) {
                 e.stopPropagation();
 
-                // Si ya está activo, cerrarlo
                 if (periodDropdownPhone.classList.contains('active')) {
                     periodDropdownPhone.classList.remove('active');
                     periodTriggerPhone.classList.remove('active');
                 } else {
-                    // Cerrar otros dropdowns y abrir este
                     closeAllPhoneDropdowns();
                     periodDropdownPhone.classList.add('active');
                     periodTriggerPhone.classList.add('active');
@@ -346,20 +333,16 @@ function initializePhoneDropdowns() {
             option.addEventListener('click', function (e) {
                 e.stopPropagation();
 
-                // Actualizar selección
                 periodOptionsPhone.forEach(opt => opt.classList.remove('selected'));
                 this.classList.add('selected');
 
-                // Actualizar texto
                 const newPeriod = this.getAttribute('data-period');
                 const newText = this.querySelector('span').textContent;
 
                 if (periodTextPhone) periodTextPhone.textContent = newText;
 
-                // Sincronizar con dropdowns del header
                 syncHeaderPeriod(newPeriod, newText);
 
-                // Cerrar dropdown
                 periodDropdownPhone.classList.remove('active');
                 if (periodTriggerPhone) periodTriggerPhone.classList.remove('active');
             });
@@ -367,17 +350,13 @@ function initializePhoneDropdowns() {
     }
 }
 
-// Sincronizar rol móvil con escritorio y phone
 function syncMobileRole(role, text, iconClass) {
-    // Sincronizar con móvil overlay
     if (mobileRoleText) mobileRoleText.textContent = text;
     if (mobileRoleIcon) mobileRoleIcon.className = iconClass;
 
-    // Sincronizar con phone
     if (roleTextPhone) roleTextPhone.textContent = text;
     if (roleIconPhone) roleIconPhone.className = iconClass + ' dropdown-icon';
 
-    // Actualizar selección en móvil overlay
     if (mobileRoleMenu) {
         const mobileOptions = mobileRoleMenu.querySelectorAll('.mobile-dropdown-option');
         mobileOptions.forEach(opt => {
@@ -388,7 +367,6 @@ function syncMobileRole(role, text, iconClass) {
         });
     }
 
-    // Actualizar selección en phone
     if (roleDropdownPhone) {
         const phoneOptions = roleDropdownPhone.querySelectorAll('.dropdown-option');
         phoneOptions.forEach(opt => {
@@ -400,15 +378,11 @@ function syncMobileRole(role, text, iconClass) {
     }
 }
 
-// Sincronizar período móvil con escritorio y phone
 function syncMobilePeriod(period, text) {
-    // Sincronizar con móvil overlay
     if (mobilePeriodText) mobilePeriodText.textContent = text;
 
-    // Sincronizar con phone
     if (periodTextPhone) periodTextPhone.textContent = text;
 
-    // Actualizar selección en móvil overlay
     if (mobilePeriodMenu) {
         const mobileOptions = mobilePeriodMenu.querySelectorAll('.mobile-dropdown-option');
         mobileOptions.forEach(opt => {
@@ -419,7 +393,6 @@ function syncMobilePeriod(period, text) {
         });
     }
 
-    // Actualizar selección en phone
     if (periodDropdownPhone) {
         const phoneOptions = periodDropdownPhone.querySelectorAll('.dropdown-option');
         phoneOptions.forEach(opt => {
@@ -431,12 +404,10 @@ function syncMobilePeriod(period, text) {
     }
 }
 
-// Sincronizar rol de escritorio con móvil y phone
 function syncDesktopRole(role, text, iconClass) {
     if (roleText) roleText.textContent = text;
     if (roleIcon) roleIcon.className = iconClass + ' dropdown-icon';
 
-    // Actualizar selección en escritorio
     if (roleDropdown) {
         const desktopOptions = roleDropdown.querySelectorAll('.dropdown-option');
         desktopOptions.forEach(opt => {
@@ -447,11 +418,9 @@ function syncDesktopRole(role, text, iconClass) {
         });
     }
 
-    // Sincronizar con phone
     if (roleTextPhone) roleTextPhone.textContent = text;
     if (roleIconPhone) roleIconPhone.className = iconClass + ' dropdown-icon';
 
-    // Actualizar selección en phone
     if (roleDropdownPhone) {
         const phoneOptions = roleDropdownPhone.querySelectorAll('.dropdown-option');
         phoneOptions.forEach(opt => {
@@ -463,11 +432,9 @@ function syncDesktopRole(role, text, iconClass) {
     }
 }
 
-// Sincronizar período de escritorio con móvil y phone
 function syncDesktopPeriod(period, text) {
     if (periodText) periodText.textContent = text;
 
-    // Actualizar selección en escritorio
     if (periodDropdown) {
         const desktopOptions = periodDropdown.querySelectorAll('.dropdown-option');
         desktopOptions.forEach(opt => {
@@ -478,10 +445,8 @@ function syncDesktopPeriod(period, text) {
         });
     }
 
-    // Sincronizar con phone
     if (periodTextPhone) periodTextPhone.textContent = text;
 
-    // Actualizar selección en phone
     if (periodDropdownPhone) {
         const phoneOptions = periodDropdownPhone.querySelectorAll('.dropdown-option');
         phoneOptions.forEach(opt => {
@@ -493,12 +458,10 @@ function syncDesktopPeriod(period, text) {
     }
 }
 
-// Sincronizar rol del phone con header
 function syncHeaderRole(role, text, iconClass) {
     if (roleText) roleText.textContent = text;
     if (roleIcon) roleIcon.className = iconClass + ' dropdown-icon';
 
-    // Actualizar selección en header
     if (roleDropdown) {
         const headerOptions = roleDropdown.querySelectorAll('.dropdown-option');
         headerOptions.forEach(opt => {
@@ -509,11 +472,9 @@ function syncHeaderRole(role, text, iconClass) {
         });
     }
 
-    // Sincronizar también con móvil si existe
     if (mobileRoleText) mobileRoleText.textContent = text;
     if (mobileRoleIcon) mobileRoleIcon.className = iconClass;
 
-    // Actualizar selección en móvil
     if (mobileRoleMenu) {
         const mobileOptions = mobileRoleMenu.querySelectorAll('.mobile-dropdown-option');
         mobileOptions.forEach(opt => {
@@ -525,11 +486,9 @@ function syncHeaderRole(role, text, iconClass) {
     }
 }
 
-// Sincronizar período del phone con header
 function syncHeaderPeriod(period, text) {
     if (periodText) periodText.textContent = text;
 
-    // Actualizar selección en header
     if (periodDropdown) {
         const headerOptions = periodDropdown.querySelectorAll('.dropdown-option');
         headerOptions.forEach(opt => {
@@ -540,10 +499,8 @@ function syncHeaderPeriod(period, text) {
         });
     }
 
-    // Sincronizar también con móvil si existe
     if (mobilePeriodText) mobilePeriodText.textContent = text;
 
-    // Actualizar selección en móvil
     if (mobilePeriodMenu) {
         const mobileOptions = mobilePeriodMenu.querySelectorAll('.mobile-dropdown-option');
         mobileOptions.forEach(opt => {
@@ -555,7 +512,6 @@ function syncHeaderPeriod(period, text) {
     }
 }
 
-// Cerrar todos los dropdowns de escritorio
 function closeAllDropdowns() {
     if (roleDropdown) {
         roleDropdown.classList.remove('active');
@@ -569,7 +525,6 @@ function closeAllDropdowns() {
     }
 }
 
-// Cerrar todos los dropdowns móviles (overlay)
 function closeMobileDropdowns() {
     const mobileWrappers = document.querySelectorAll('.mobile-dropdown-wrapper');
     mobileWrappers.forEach(wrapper => {
@@ -577,7 +532,6 @@ function closeMobileDropdowns() {
     });
 }
 
-// Cerrar todos los dropdowns del teléfono
 function closeAllPhoneDropdowns() {
     if (roleDropdownPhone) {
         roleDropdownPhone.classList.remove('active');
@@ -591,7 +545,6 @@ function closeAllPhoneDropdowns() {
     }
 }
 
-// Actualizar email del usuario según el rol
 function updateUserEmail(role) {
     const institutionalEmail = document.getElementById('institutionalEmail');
 
@@ -613,7 +566,6 @@ function updateUserEmail(role) {
     }
 }
 
-// Header scroll effect
 function handleHeaderScroll() {
     if (header) {
         if (window.scrollY > 20) {
@@ -624,31 +576,47 @@ function handleHeaderScroll() {
     }
 }
 
-// Toggle theme
 function toggleTheme() {
     isDarkTheme = !isDarkTheme;
     const html = document.documentElement;
+    const logoImage = document.getElementById('logoImage');
 
     if (isDarkTheme) {
         html.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
+
+        if (logoImage) {
+            logoImage.src = 'Group 9white.png';
+            logoImage.alt = 'logo-white';
+        }
     } else {
         html.setAttribute('data-theme', 'light');
         localStorage.setItem('theme', 'light');
+
+        if (logoImage) {
+            logoImage.src = 'Group 8.png';
+            logoImage.alt = 'logo-dark';
+        }
     }
 
     updateThemeIcons();
 
-    // Animación del botón
     if (themeToggle) {
         themeToggle.style.transform = 'scale(0.9) rotate(180deg)';
         setTimeout(() => {
             themeToggle.style.transform = 'scale(1) rotate(0deg)';
         }, 300);
     }
+
+    if (logoImage) {
+        logoImage.style.transition = 'opacity 0.3s ease';
+        logoImage.style.opacity = '0.7';
+        setTimeout(() => {
+            logoImage.style.opacity = '1';
+        }, 150);
+    }
 }
 
-// Actualizar iconos del tema
 function updateThemeIcons() {
     if (themeToggle) {
         const desktopIcon = themeToggle.querySelector('i');
@@ -670,7 +638,6 @@ function updateThemeIcons() {
     }
 }
 
-// Abrir menú móvil
 function openMobileMenu() {
     mobileMenuOpen = true;
     if (mobileOverlay) {
@@ -688,7 +655,6 @@ function openMobileMenu() {
     closeAllDropdowns();
 }
 
-// Cerrar menú móvil
 function closeMobileMenu() {
     mobileMenuOpen = false;
     if (mobileOverlay) {
@@ -705,22 +671,23 @@ function closeMobileMenu() {
     document.body.style.overflow = '';
 }
 
-// Cargar preferencias del usuario
 function loadUserPreferences() {
     const savedTheme = localStorage.getItem('theme');
+    const logoImage = document.getElementById('logoImage');
+
     if (savedTheme === 'dark') {
-        isDarkTheme = false; // Set to false first so toggleTheme() will set it to true
+        isDarkTheme = false;
         toggleTheme();
+    } else {
+        if (logoImage) {
+            logoImage.src = 'Group 8.png';
+            logoImage.alt = 'logo-dark';
+        }
     }
 }
 
-// ====================================
-// QR POPUP FUNCTIONS
-// ====================================
 
-// Inicializar QR popup
 function initializeQRPopup() {
-    // Abrir popup
     if (qrCodeBtn) {
         qrCodeBtn.addEventListener('click', function (e) {
             e.preventDefault();
@@ -728,12 +695,10 @@ function initializeQRPopup() {
         });
     }
 
-    // Cerrar popup
     if (qrPopupClose) {
         qrPopupClose.addEventListener('click', closeQRPopup);
     }
 
-    // Cerrar popup al hacer clic en el overlay
     if (qrPopupOverlay) {
         qrPopupOverlay.addEventListener('click', function (e) {
             if (e.target === qrPopupOverlay) {
@@ -742,17 +707,14 @@ function initializeQRPopup() {
         });
     }
 
-    // Botón descargar
     if (qrDownloadBtn) {
         qrDownloadBtn.addEventListener('click', downloadQRCode);
     }
 
-    // Botón compartir
     if (qrShareBtn) {
         qrShareBtn.addEventListener('click', shareQRCode);
     }
 
-    // Cerrar con tecla Escape
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && qrPopupOverlay && qrPopupOverlay.classList.contains('active')) {
             closeQRPopup();
@@ -760,13 +722,11 @@ function initializeQRPopup() {
     });
 }
 
-// Abrir QR popup
 function openQRPopup() {
     if (qrPopupOverlay) {
         qrPopupOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
 
-        // Animación de entrada
         setTimeout(() => {
             const popup = qrPopupOverlay.querySelector('.qr-popup');
             if (popup) {
@@ -776,7 +736,6 @@ function openQRPopup() {
     }
 }
 
-// Cerrar QR popup
 function closeQRPopup() {
     if (qrPopupOverlay) {
         qrPopupOverlay.classList.remove('active');
@@ -784,13 +743,9 @@ function closeQRPopup() {
     }
 }
 
-// Descargar QR code
 function downloadQRCode() {
-    // Aquí puedes implementar la lógica de descarga
-    // Por ahora solo mostramos un alert
     alert('Función de descarga - Aquí implementarás la descarga del QR');
 
-    // Ejemplo de implementación cuando tengas la imagen:
     /*
     const link = document.createElement('a');
     link.download = 'qr-code-estudiante.png';
@@ -799,9 +754,7 @@ function downloadQRCode() {
     */
 }
 
-// Compartir QR code
 function shareQRCode() {
-    // Verificar si el navegador soporta Web Share API
     if (navigator.share) {
         navigator.share({
             title: 'Mi Código QR de Estudiante',
@@ -809,12 +762,10 @@ function shareQRCode() {
             url: window.location.href
         }).catch(console.error);
     } else {
-        // Fallback - copiar al portapapeles o mostrar opciones
         alert('Función de compartir - Aquí implementarás las opciones de compartir');
     }
 }
 
-// Función para mostrar la imagen del QR cuando la tengas
 function showQRImage(imageSrc) {
     if (qrCodeImage && qrPlaceholder) {
         qrCodeImage.src = imageSrc;
@@ -823,13 +774,8 @@ function showQRImage(imageSrc) {
     }
 }
 
-// ====================================
-// PASSWORD POPUP FUNCTIONS
-// ====================================
 
-// Inicializar Password popup
 function initializePasswordPopup() {
-    // Abrir popup desde desktop
     if (passwordBtn) {
         passwordBtn.addEventListener('click', function (e) {
             e.preventDefault();
@@ -837,16 +783,13 @@ function initializePasswordPopup() {
         });
     }
 
-    // Abrir popup desde mobile
     if (mobilePasswordBtn) {
         mobilePasswordBtn.addEventListener('click', function (e) {
             e.preventDefault();
             openPasswordPopup();
-            closeMobileMenu(); // Cerrar el menú móvil
         });
     }
 
-    // Cerrar popup
     if (passwordPopupClose) {
         passwordPopupClose.addEventListener('click', closePasswordPopup);
     }
@@ -855,7 +798,6 @@ function initializePasswordPopup() {
         passwordCancelBtn.addEventListener('click', closePasswordPopup);
     }
 
-    // Cerrar popup al hacer clic en el overlay
     if (passwordPopupOverlay) {
         passwordPopupOverlay.addEventListener('click', function (e) {
             if (e.target === passwordPopupOverlay) {
@@ -864,7 +806,6 @@ function initializePasswordPopup() {
         });
     }
 
-    // Toggle password visibility
     const passwordToggles = document.querySelectorAll('.password-toggle');
     passwordToggles.forEach(toggle => {
         toggle.addEventListener('click', function () {
@@ -882,7 +823,6 @@ function initializePasswordPopup() {
         });
     });
 
-    // Password validation
     if (newPasswordInput) {
         newPasswordInput.addEventListener('input', validatePassword);
     }
@@ -891,12 +831,10 @@ function initializePasswordPopup() {
         confirmPasswordInput.addEventListener('input', validateConfirmPassword);
     }
 
-    // Form submission
     if (passwordChangeForm) {
         passwordChangeForm.addEventListener('submit', handlePasswordChange);
     }
 
-    // Cerrar con tecla Escape
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && passwordPopupOverlay && passwordPopupOverlay.classList.contains('active')) {
             closePasswordPopup();
@@ -904,20 +842,17 @@ function initializePasswordPopup() {
     });
 }
 
-// Abrir Password popup
 function openPasswordPopup() {
     if (passwordPopupOverlay) {
         passwordPopupOverlay.classList.add('active');
         document.body.style.overflow = 'hidden';
 
-        // Limpiar formulario
         if (passwordChangeForm) {
             passwordChangeForm.reset();
         }
         clearPasswordErrors();
         resetPasswordValidation();
 
-        // Focus en primer input
         setTimeout(() => {
             if (currentPasswordInput) {
                 currentPasswordInput.focus();
@@ -926,13 +861,11 @@ function openPasswordPopup() {
     }
 }
 
-// Cerrar Password popup
 function closePasswordPopup() {
     if (passwordPopupOverlay) {
         passwordPopupOverlay.classList.remove('active');
         document.body.style.overflow = '';
 
-        // Limpiar formulario después de cerrar
         setTimeout(() => {
             if (passwordChangeForm) {
                 passwordChangeForm.reset();
@@ -943,7 +876,6 @@ function closePasswordPopup() {
     }
 }
 
-// Validar nueva contraseña
 function validatePassword() {
     const password = newPasswordInput.value;
     const requirements = {
@@ -953,13 +885,11 @@ function validatePassword() {
         number: /\d/.test(password)
     };
 
-    // Actualizar indicadores visuales
     updateRequirement('req-length', requirements.length);
     updateRequirement('req-uppercase', requirements.uppercase);
     updateRequirement('req-lowercase', requirements.lowercase);
     updateRequirement('req-number', requirements.number);
 
-    // Actualizar estilo del input
     const allValid = Object.values(requirements).every(req => req);
     if (password.length > 0) {
         newPasswordInput.className = `password-input ${allValid ? 'success' : 'error'}`;
@@ -967,7 +897,6 @@ function validatePassword() {
         newPasswordInput.className = 'password-input';
     }
 
-    // Validar confirmación si ya hay texto
     if (confirmPasswordInput.value) {
         validateConfirmPassword();
     }
@@ -975,7 +904,6 @@ function validatePassword() {
     return allValid;
 }
 
-// Validar confirmación de contraseña
 function validateConfirmPassword() {
     const password = newPasswordInput.value;
     const confirm = confirmPasswordInput.value;
@@ -999,7 +927,6 @@ function validateConfirmPassword() {
     }
 }
 
-// Actualizar requisito de contraseña
 function updateRequirement(reqId, isValid) {
     const element = document.getElementById(reqId);
     if (element) {
@@ -1014,7 +941,6 @@ function updateRequirement(reqId, isValid) {
     }
 }
 
-// Limpiar errores
 function clearPasswordErrors() {
     const errors = document.querySelectorAll('.password-error');
     errors.forEach(error => error.classList.remove('show'));
@@ -1025,7 +951,6 @@ function clearPasswordErrors() {
     });
 }
 
-// Reset validación
 function resetPasswordValidation() {
     const requirements = ['req-length', 'req-uppercase', 'req-lowercase', 'req-number'];
     requirements.forEach(reqId => {
@@ -1033,7 +958,6 @@ function resetPasswordValidation() {
     });
 }
 
-// Manejar cambio de contraseña
 function handlePasswordChange(e) {
     e.preventDefault();
 
@@ -1041,7 +965,6 @@ function handlePasswordChange(e) {
     const newPassword = newPasswordInput.value;
     const confirmPassword = confirmPasswordInput.value;
 
-    // Validaciones
     if (!currentPassword) {
         showPasswordError('currentPasswordError', 'La contraseña actual es requerida');
         return;
@@ -1056,31 +979,25 @@ function handlePasswordChange(e) {
         return;
     }
 
-    // Mostrar loading
     passwordSaveBtn.classList.add('loading');
     passwordSaveBtn.disabled = true;
     passwordSaveBtn.innerHTML = '<i class="fas fa-spinner"></i>Guardando...';
 
-    // Simular llamada al servidor
     setTimeout(() => {
-        // Aquí implementarías la lógica real de cambio de contraseña
         console.log('Cambiando contraseña...', {
             currentPassword,
             newPassword
         });
 
-        // Simular éxito
         alert('¡Contraseña cambiada exitosamente!');
         closePasswordPopup();
 
-        // Reset loading
         passwordSaveBtn.classList.remove('loading');
         passwordSaveBtn.disabled = false;
         passwordSaveBtn.innerHTML = '<i class="fas fa-save"></i>Guardar Cambios';
     }, 2000);
 }
 
-// Mostrar error de contraseña
 function showPasswordError(errorId, message) {
     const errorElement = document.getElementById(errorId);
     if (errorElement) {
@@ -1089,7 +1006,6 @@ function showPasswordError(errorId, message) {
     }
 }
 
-// Datos de módulos organizados por rol
 const modulesData = {
     estudiante: {
         title: "Panel de Estudiante",
@@ -1525,13 +1441,11 @@ const modulesData = {
     }
 };
 
-// Variables globales para el contenido principal
 let currentRole = 'estudiante';
 let filteredModules = [];
 let searchTerm = '';
 let activeFilter = 'todos';
 
-// Función principal para renderizar el contenido
 function renderMainContent(role = currentRole) {
     currentRole = role;
     const mainContent = document.getElementById('mainContent');
@@ -1540,20 +1454,16 @@ function renderMainContent(role = currentRole) {
     const data = modulesData[role];
     if (!data) return;
 
-    // Limpiar contenido anterior
     mainContent.innerHTML = '';
 
-    // Crear header del contenido
     const header = createContentHeader(data);
     mainContent.appendChild(header);
 
-    // Crear filtros de búsqueda
     if (role !== 'administrativo') {
         const filters = createContentFilters(role);
         mainContent.appendChild(filters);
     }
 
-    // Renderizar según el tipo de rol
     if (role === 'estudiante') {
         renderStudentContent(mainContent, data);
     } else if (role === 'profesor') {
@@ -1563,7 +1473,6 @@ function renderMainContent(role = currentRole) {
     }
 }
 
-// Crear header del contenido
 function createContentHeader(data) {
     const header = document.createElement('div');
     header.className = 'content-header';
@@ -1581,7 +1490,6 @@ function createContentHeader(data) {
     return header;
 }
 
-// Crear filtros de búsqueda
 function createContentFilters(role) {
     const filters = document.createElement('div');
     filters.className = 'content-filters';
@@ -1601,7 +1509,6 @@ function createContentFilters(role) {
                 `).join('')}
             `;
 
-    // Agregar event listeners
     setTimeout(() => {
         const filterTags = filters.querySelectorAll('.filter-tag');
 
@@ -1613,7 +1520,6 @@ function createContentFilters(role) {
     return filters;
 }
 
-// Obtener categorías únicas según el rol
 function getUniqueCategories(role) {
     const data = modulesData[role];
     if (!data.modules) return [];
@@ -1637,9 +1543,7 @@ function getUniqueCategories(role) {
     return Array.from(categories).map(cat => categoryMap[cat]).filter(Boolean);
 }
 
-// Renderizar contenido para estudiantes
 function renderStudentContent(container, data) {
-    // Sección de módulos prioritarios
     if (data.priority) {
         const prioritySection = document.createElement('div');
         prioritySection.className = 'priority-section';
@@ -1662,7 +1566,6 @@ function renderStudentContent(container, data) {
         container.appendChild(prioritySection);
     }
 
-    // Sección de todos los módulos
     const modulesSection = document.createElement('div');
     modulesSection.innerHTML = `
                 <h2 class="priority-title">
@@ -1678,12 +1581,10 @@ function renderStudentContent(container, data) {
     filteredModules = data.modules;
 }
 
-// Renderizar contenido para profesores
 function renderProfessorContent(container, data) {
     const priorityModules = data.modules.filter(m => m.priority);
     const regularModules = data.modules.filter(m => !m.priority);
 
-    // Módulos prioritarios
     if (priorityModules.length > 0) {
         const prioritySection = document.createElement('div');
         prioritySection.className = 'priority-section';
@@ -1706,7 +1607,6 @@ function renderProfessorContent(container, data) {
         container.appendChild(prioritySection);
     }
 
-    // Resto de módulos
     const modulesSection = document.createElement('div');
     modulesSection.innerHTML = `
                 <h2 class="priority-title">
@@ -1722,7 +1622,6 @@ function renderProfessorContent(container, data) {
     filteredModules = data.modules;
 }
 
-// Renderizar contenido para administrativos
 function renderAdminContent(container, data) {
     if (!data.categories) return;
 
@@ -1749,7 +1648,6 @@ function renderAdminContent(container, data) {
     });
 }
 
-// Renderizar módulos individuales
 function renderModules(modules) {
     return modules.map(module => `
                 <div class="module-card" onclick="openModule('${module.id}')">
@@ -1776,40 +1674,32 @@ function renderModules(modules) {
             `).join('');
 }
 
-// Manejar búsqueda
 function handleSearch(event) {
     searchTerm = event.target.value.toLowerCase();
     filterModules();
 }
 
-// Manejar clic en filtros
 function handleFilterClick(clickedTag) {
-    // Remover clase active de todos los filtros
     document.querySelectorAll('.filter-tag').forEach(tag => {
         tag.classList.remove('active');
     });
 
-    // Agregar clase active al filtro clickeado
     clickedTag.classList.add('active');
 
-    // Actualizar filtro activo
     activeFilter = clickedTag.getAttribute('data-filter');
     filterModules();
 }
 
-// Filtrar módulos
 function filterModules() {
     const data = modulesData[currentRole];
     if (!data.modules) return;
 
     let modules = data.modules;
 
-    // Filtrar por categoría
     if (activeFilter !== 'todos') {
         modules = modules.filter(module => module.category === activeFilter);
     }
 
-    // Filtrar por término de búsqueda
     if (searchTerm) {
         modules = modules.filter(module =>
             module.title.toLowerCase().includes(searchTerm) ||
@@ -1817,7 +1707,6 @@ function filterModules() {
         );
     }
 
-    // Actualizar grid de módulos
     const modulesGrid = document.getElementById('modulesGrid');
     if (modulesGrid) {
         modulesGrid.innerHTML = renderModules(modules);
@@ -1826,14 +1715,9 @@ function filterModules() {
     filteredModules = modules;
 }
 
-// Abrir módulo
 function openModule(moduleId) {
-    // console.log(`Abriendo módulo: ${moduleId}`);
 
-    // Aquí implementarías la lógica para navegar al módulo específico
-    // Por ejemplo, cambiar la URL o cargar contenido dinámico
 
-    // Simulación de feedback visual
     const moduleCard = event?.target?.closest?.('.module-card') ||
         event?.target?.closest?.('.priority-card');
 
@@ -1844,21 +1728,13 @@ function openModule(moduleId) {
         }, 150);
     }
 
-    // Mostrar notificación temporal
-    // showNotification(`Accediendo a ${moduleId}...`);
 }
 
-// Mostrar información del módulo
 function showModuleInfo(moduleId) {
-    // console.log(`Mostrando información del módulo: ${moduleId}`);
 
-    // Aquí podrías mostrar un modal con información detallada
-    // showNotification(`Información del módulo ${moduleId}`);
 }
 
-// Mostrar notificación
 function showNotification(message) {
-    // Crear elemento de notificación
     const notification = document.createElement('div');
     notification.style.cssText = `
                 position: fixed;
@@ -1877,12 +1753,10 @@ function showNotification(message) {
 
     document.body.appendChild(notification);
 
-    // Animar entrada
     setTimeout(() => {
         notification.style.transform = 'translateX(0)';
     }, 100);
 
-    // Remover después de 3 segundos
     setTimeout(() => {
         notification.style.transform = 'translateX(100%)';
         setTimeout(() => {
@@ -1891,14 +1765,11 @@ function showNotification(message) {
     }, 3000);
 }
 
-// Función para sincronizar con el cambio de rol del navbar
 function updateMainContentRole(newRole) {
     renderMainContent(newRole);
 }
 
-// Integración con el sistema existente de dropdowns
 function integrateWithExistingSystem() {
-    // Observar cambios en el rol del navbar
     const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
             if (mutation.type === 'childList' || mutation.type === 'characterData') {
@@ -1921,7 +1792,6 @@ function integrateWithExistingSystem() {
         });
     });
 
-    // Observar cambios en el texto del rol
     const roleText = document.getElementById('roleText');
     if (roleText) {
         observer.observe(roleText, {

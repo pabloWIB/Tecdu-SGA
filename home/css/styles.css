@@ -91,10 +91,10 @@ body {
   color: var(--primary-blue);
   text-decoration: none;
   transition: all 0.3s ease;
-}
-
-.logo:hover {
-  transform: scale(1.05);
+  img{
+    width: 100%;
+    max-width: 150px;
+  }
 }
 
 .logo i {
