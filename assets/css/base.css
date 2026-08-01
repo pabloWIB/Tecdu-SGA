@@ -1,0 +1,263 @@
+/* =========================================================================
+   base.css — variables, reinicio, tipografía y utilidades
+   ========================================================================= */
+
+/* --- Variables ---------------------------------------------------------- */
+
+:root {
+  color-scheme: light;
+
+  /* Paleta tomada del logotipo: índigo #1709AC y verde #0BFF0B. */
+  --color-brand: #1709ac;
+  --color-brand-strong: #12087f;
+  --color-brand-surface: #1709ac;
+  --color-brand-soft: #eeecfb;
+  --color-on-brand: #ffffff;
+  --color-accent: #0bff0b;
+
+  --color-bg: #ffffff;
+  --color-surface: #f5f6fa;
+  --color-surface-raised: #ffffff;
+  --color-border: #dce0ec;
+  --color-border-strong: #b9c0d4;
+
+  --color-text: #12141c;
+  --color-text-secondary: #4a5064;
+  --color-text-muted: #666d80;
+
+  --color-danger: #b3261e;
+  --color-danger-surface: #fdecea;
+  --color-success: #0f7b3f;
+
+  /* Escala de espaciado: 4 / 8 / 16 / 24 / 32 / 48 / 64 / 96 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 96px;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(18, 20, 28, 0.06);
+  --shadow-md: 0 4px 16px rgba(18, 20, 28, 0.1);
+
+  --transition: 180ms ease;
+
+  --tap-target: 44px;
+  --measure: 66ch;
+  --content-max: 1400px;
+  --header-offset: 0px;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-brand: #a5b4fc;
+  --color-brand-strong: #c7d0ff;
+  --color-brand-surface: #4f46e5;
+  --color-brand-soft: #1e2340;
+  --color-on-brand: #ffffff;
+
+  --color-bg: #0d0f18;
+  --color-surface: #161a26;
+  --color-surface-raised: #1c2130;
+  --color-border: #2a3145;
+  --color-border-strong: #3d4761;
+
+  --color-text: #f2f4f8;
+  --color-text-secondary: #b9c0d0;
+  --color-text-muted: #949bad;
+
+  --color-danger: #ff9a91;
+  --color-danger-surface: #3a1d1a;
+  --color-success: #6ee7a5;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.55);
+}
+
+/* --- Reinicio ----------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+ul,
+ol,
+fieldset,
+legend {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* Las reglas de `display` de los componentes ganarían al `display: none` que
+   la hoja del navegador aplica a [hidden]; esta regla lo restablece. */
+[hidden] {
+  display: none !important;
+}
+
+img,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+/* --- Base --------------------------------------------------------------- */
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.has-open-dialog {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.25;
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--text-2xl);
+}
+
+h2 {
+  font-size: var(--text-xl);
+}
+
+h3 {
+  font-size: var(--text-lg);
+}
+
+h4 {
+  font-size: var(--text-base);
+}
+
+a {
+  color: var(--color-brand);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  color: var(--color-brand-strong);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: var(--color-brand);
+  color: var(--color-on-brand);
+}
+
+/* --- Utilidades --------------------------------------------------------- */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: 200;
+  padding: var(--space-2) var(--space-3);
+  transform: translateY(-200%);
+  background-color: var(--color-brand-surface);
+  color: var(--color-on-brand);
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform var(--transition);
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+  color: var(--color-on-brand);
+}
+
+.measure {
+  max-width: var(--measure);
+}
+
+/* --- Preferencias del sistema ------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

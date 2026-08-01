@@ -1,0 +1,255 @@
+/* =========================================================================
+   layout.css — cabecera, rejilla principal, panel lateral y pie
+   Enfoque mobile-first: los ajustes van en min-width.
+   ========================================================================= */
+
+/* --- Cabecera ----------------------------------------------------------- */
+
+.site-header {
+  background-color: var(--color-surface-raised);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header__inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "logo actions"
+    "controls controls";
+  align-items: center;
+  gap: var(--space-3);
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--space-3);
+}
+
+.site-header__logo {
+  grid-area: logo;
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-header__logo img {
+  width: 124px;
+}
+
+/* El logotipo se cambia por CSS y no por JS, para que también funcione en
+   páginas sin scripts y sin parpadeo al alternar el tema. */
+[data-theme="dark"] .site-header__logo .logo--light,
+:root:not([data-theme="dark"]) .site-header__logo .logo--dark {
+  display: none;
+}
+
+.site-header__actions {
+  grid-area: actions;
+  display: flex;
+  gap: var(--space-2);
+}
+
+.site-header__controls {
+  grid-area: controls;
+  display: grid;
+  gap: var(--space-2);
+}
+
+/* --- Presentación del panel --------------------------------------------- */
+
+.page-intro {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-3) 0;
+}
+
+.page-intro__heading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.page-intro__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background-color: var(--color-brand-surface);
+  color: var(--color-on-brand);
+  font-size: var(--text-lg);
+}
+
+.page-intro__subtitle {
+  max-width: var(--measure);
+  margin-top: var(--space-2);
+  color: var(--color-text-secondary);
+}
+
+.page-intro__actions {
+  margin-top: var(--space-4);
+}
+
+.page-intro__period {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin-top: var(--space-3);
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+}
+
+/* --- Rejilla principal --------------------------------------------------- */
+
+.layout {
+  display: grid;
+  gap: var(--space-4);
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-3) var(--space-6);
+}
+
+.profile-panel {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+}
+
+.panel-section + .panel-section {
+  margin-top: var(--space-6);
+}
+
+.panel-section__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.module-group + .module-group {
+  margin-top: var(--space-5);
+}
+
+.module-group__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+  font-size: var(--text-base);
+}
+
+.module-group__description {
+  max-width: var(--measure);
+  margin-bottom: var(--space-3);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+}
+
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  gap: var(--space-3);
+}
+
+/* --- Pie ---------------------------------------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.site-footer p {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: var(--space-4) var(--space-3);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  text-align: center;
+}
+
+/* --- Puntos de ruptura --------------------------------------------------- */
+
+@media (min-width: 480px) {
+  .site-header__logo img {
+    width: 144px;
+  }
+}
+
+@media (min-width: 768px) {
+  .site-header__inner,
+  .page-intro,
+  .layout {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+  .site-header__controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .site-header__controls .field--search {
+    grid-column: 1 / -1;
+  }
+
+  .site-footer p {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-offset: 76px;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .site-header__inner {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: "logo controls actions";
+    gap: var(--space-4);
+    min-height: var(--header-offset);
+  }
+
+  .site-header__controls {
+    grid-template-columns: 190px 150px minmax(0, 1fr);
+    gap: var(--space-3);
+  }
+
+  .site-header__controls .field--search {
+    grid-column: auto;
+  }
+
+  .layout {
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: var(--space-5);
+    align-items: start;
+  }
+
+  .profile-panel {
+    position: sticky;
+    top: calc(var(--header-offset) + var(--space-4));
+    max-height: calc(100vh - var(--header-offset) - var(--space-6));
+    overflow-y: auto;
+  }
+}
+
+@media (min-width: 1440px) {
+  .site-header__inner,
+  .page-intro,
+  .layout {
+    padding-left: var(--space-5);
+    padding-right: var(--space-5);
+  }
+
+  .module-grid {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  }
+}

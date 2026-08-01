@@ -1,0 +1,23 @@
+# Dependencias (el proyecto no las usa, pero `npx serve` puede dejarlas)
+node_modules/
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Registros y artefactos de herramientas
+*.log
+npm-debug.log*
+.cache/
+.vercel/
+
+# Archivos generados por el sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp

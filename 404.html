@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Página no encontrada — Portal académico Tecdu SGA</title>
+  <meta name="description"
+    content="La dirección solicitada no existe en el portal académico Tecdu SGA. Vuelve al inicio para consultar el catálogo de módulos y la credencial del perfil.">
+  <meta name="robots" content="noindex">
+
+  <link rel="canonical" href="https://tecdusga.wib.digital/404.html">
+
+  <link rel="icon" type="image/png" href="assets/img/icons/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/icons/apple-touch-icon.png">
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem("tecdu:theme");
+        var dark = saved
+          ? saved === "dark"
+          : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+      } catch (error) {
+        /* Sin almacenamiento se mantiene el tema claro por defecto. */
+      }
+    })();
+  </script>
+
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="./" aria-label="Tecdu SGA, inicio">
+        <img class="logo--light" src="assets/img/logo/tecdu.webp" width="300" height="83"
+          alt="Tecdu, Sistema de Gestión Académico">
+        <img class="logo--dark" src="assets/img/logo/tecdu-inverse.webp" width="300" height="83" alt="">
+      </a>
+    </div>
+  </header>
+
+  <main class="page-intro" id="main">
+    <h1>Esta página no existe</h1>
+    <p class="page-intro__subtitle">
+      La dirección que has abierto no corresponde a ninguna pantalla del portal.
+      Puede que el enlace esté mal escrito o que apunte a una versión anterior del sitio.
+    </p>
+    <p class="page-intro__actions">
+      <a class="button button--primary" href="./">Volver al portal</a>
+    </p>
+  </main>
+</body>
+
+</html>
