@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /docs/
 
-Sitemap: https://tecdusga.wib.digital/sitemap.xml
+Sitemap: https://pablowib.github.io/Tecdu-SGA/sitemap.xml

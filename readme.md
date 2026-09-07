@@ -2,7 +2,7 @@
 
 Interface rebuild for the Tecdu academic management system: a role-aware module catalogue with a student credential whose QR code is generated in the browser.
 
-[![Live demo](https://img.shields.io/badge/demo-tecdusga.wib.digital-2ea44f)](https://tecdusga.wib.digital)
+[![Live demo](https://img.shields.io/badge/demo-pablowib.github.io/Tecdu-SGA-2ea44f)](https://pablowib.github.io/Tecdu-SGA)
 [![Hire me on Fiverr](https://img.shields.io/badge/Hire%20me%20on-Fiverr-1DBF73?style=for-the-badge&logo=fiverr&logoColor=white)](https://www.fiverr.com/pablonietop)
 [![License](https://img.shields.io/badge/license-MIT-blue)](license)
 ![Build step](https://img.shields.io/badge/build%20step-none-lightgrey)
@@ -107,7 +107,7 @@ The role and period pickers are native `<select>` elements. The previous build h
 
 ## Deployment
 
-Deployed on Vercel at [tecdusga.wib.digital](https://tecdusga.wib.digital). Static: upload the repository root as-is, with no build command and no output directory. Vercel serves `404.html` for unknown paths automatically.
+Deployed on GitHub Pages at [pablowib.github.io/Tecdu-SGA](https://pablowib.github.io/Tecdu-SGA). Static: upload the repository root as-is, with no build command and no output directory. GitHub Pages serves `404.html` for unknown paths automatically.
 
 ## License
 
